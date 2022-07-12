@@ -24,9 +24,9 @@
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" to="users">
-                    <i class="fa fa-user-plus"></i>
-                    Ajouter un utilisateur
+                    <router-link class="nav-link text-orange" to="services">
+                    <i class="fa fa-house-laptop"></i>
+                    List des services
                     </router-link>
                 </li>
                 </ul>
@@ -104,7 +104,7 @@
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
     color: inherit;
-    
+
 }
 
 .sidebar-heading {
@@ -120,7 +120,7 @@
 .sidebar .nav-item:hover{
     background-color: #ff5b27 !important;
     color: black;
-    
+
 }
 .sidebar .nav-link:hover{
     color: black !important;

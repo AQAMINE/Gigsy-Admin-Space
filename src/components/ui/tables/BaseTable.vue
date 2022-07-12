@@ -19,7 +19,6 @@ thead{
     background-color: #ff5b27;
 }
 
-
 tr {
     width: 100%;
     display: inline-table;
@@ -28,10 +27,10 @@ tr {
 
 table{
     /* height:300px;               */
-    display: -moz-groupbox;    
+    display: -moz-groupbox;
 }
 tbody{
-    overflow-y: scroll;  
+    overflow-y: scroll;
     /* height: 300px;             */
     width: 100%;
     /* position:absolute */

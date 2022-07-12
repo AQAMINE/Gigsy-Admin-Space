@@ -11,12 +11,12 @@
 
 <script>
 export default {
-    props:['title','shadow'],
-    computed:{
-        showShadow(){
-            return this.shadow == true ? 'card-shadow' :  'card-border';
-        }
+  props: ['title', 'shadow'],
+  computed: {
+    showShadow () {
+      return this.shadow === true ? 'card-shadow' : 'card-border'
     }
+  }
 }
 </script>
 

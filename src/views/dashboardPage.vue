@@ -1,5 +1,5 @@
 <template>
-    
+
     <section class="mt-4">
         <!-- <h2>Dashboard</h2> -->
         <div class="container">
@@ -10,7 +10,7 @@
                 <number-card color="bg-c-green" icon="fa-cart-flatbed" title="Nombre d'acheteurs" number="500"></number-card>
                 <number-card color="bg-c-blue" icon="fa-chart-line" title="Nombre de commandes" number="450"></number-card>
             </base-card>
-            
+
         </div>
     </div>
     </section>
@@ -19,22 +19,22 @@
 <script>
 import NumberCard from '../components/ui/card/NumberCard.vue'
 export default {
-    components:{NumberCard},
-    data(){
-        return{
-            usersCounter: 0
-        }
-    },
-    created(){
-        this.userCounter();
-    },
-    methods:{
-        userCounter(){
-            this.usersCounter = this.$store.getters['users/users'].length;
-        }
-    },
-    computed:{
-    
+  components: { NumberCard },
+  data () {
+    return {
+      usersCounter: 0
     }
+  },
+  created () {
+    this.userCounter()
+  },
+  methods: {
+    userCounter () {
+      this.usersCounter = this.$store.getters['users/users'].length
+    }
+  },
+  computed: {
+
+  }
 }
 </script>

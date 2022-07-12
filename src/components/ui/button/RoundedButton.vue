@@ -9,22 +9,22 @@
 </template>
 <script>
 export default {
-    props: {
-        type :{
-            type: String,
-            default: 'success'
-        },
-        link:{
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        to: {
-            type: String,
-            required : false,
-            default: '/'
-        }
+  props: {
+    type: {
+      type: String,
+      default: 'success'
+    },
+    link: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    to: {
+      type: String,
+      required: false,
+      default: '/'
     }
+  }
 }
 </script>
 

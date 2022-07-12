@@ -25,46 +25,45 @@
 </template>
 
 <script>
-require ("../../assets/css/auth/auth.css");
-import BaseButton from '../../components/ui/auth/BaseButton.vue';
+import BaseButton from '../../components/ui/auth/BaseButton.vue'
+require('../../assets/css/auth/auth.css')
 
 export default {
-    components:{BaseButton},
-    data(){
-        return{
-            email: '',
-            password:'',
-            fromIsValid: true,
-            isLoading:false
-        };
-    },
-    methods:{
-        async submitForm(){
-            //rest
-            this.fromIsValid = true;
-            this.$store.commit('setErrors','');
-            //validation
-            if (this.password === '' || !this.email.includes('@') || this.email === ''){
-                return this.showAlert('error','Compléter les informations utilisateur');
-            }
-            //Submit
-            const actionPayload = {
-                    email: this.email,
-                    password: this.password,
-                    
-                };
-                this.isLoading = true;
-                await this.$store.dispatch('login',actionPayload);
-                this.isLoading = false;
-
-                if(!this.$store.getters.getErrors){
-                    this.showAlert('success','Connexion réussie');
-                    this.$router.replace({name : 'dashboard'});
-                }else{
-                    return this.showAlert('error','Email ou mot de passe incorrect');
-                }
-
-        }
+  components: { BaseButton },
+  data () {
+    return {
+      email: '',
+      password: '',
+      fromIsValid: true,
+      isLoading: false
     }
+  },
+  methods: {
+    async submitForm () {
+      // rest
+      this.fromIsValid = true
+      this.$store.commit('setErrors', '')
+      // validation
+      if (this.password === '' || !this.email.includes('@') || this.email === '') {
+        return this.showAlert('error', 'Compléter les informations utilisateur')
+      }
+      // Submit
+      const actionPayload = {
+        email: this.email,
+        password: this.password
+
+      }
+      this.isLoading = true
+      await this.$store.dispatch('login', actionPayload)
+      this.isLoading = false
+
+      if (!this.$store.getters.getErrors) {
+        this.showAlert('success', 'Connexion réussie')
+        this.$router.replace({ name: 'dashboard' })
+      } else {
+        return this.showAlert('error', 'Email ou mot de passe incorrect')
+      }
+    }
+  }
 }
 </script>

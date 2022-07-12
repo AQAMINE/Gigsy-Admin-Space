@@ -30,62 +30,62 @@
                         </div>
                         <div class="mb-2 text-center">
                             <base-button >S'inscrire <i class="fa fa-user-plus"></i></base-button>
-                            
+
                         </div>
                         <div class="mb-2 text-center">
                             <base-button link to="login">Connexion <i class="fa fa-door-open"></i></base-button>
                         </div>
                     </form>
-                    
+
                     <hr class="HrLine">
                     <div class="text-secondary copyright-text text-center">Copyright 2022 by AQAMINE. All Rights Reserved.</div>
                 </section>
 </template>
 
 <script>
-require ("../../assets/css/auth/auth.css");
-import BaseButton from '../../components/ui/auth/BaseButton.vue';
+import BaseButton from '../../components/ui/auth/BaseButton.vue'
+require('../../assets/css/auth/auth.css')
 export default {
-    components:{BaseButton},
-    data(){
-        return {
-            firstName: '',
-            lastName:'',
-            email: '',
-            password: '',
-            confirmPassword: '',
-            isLoading: false
-        }
-    },
-    computed:{
-        getErrors(){
-            return this.$store.getters.getErrors;
-        }
-    },
-    methods:{
-        async submitForm(){
-            this.$store.commit('setErrors','');
-
-            const actionPayload = {
-                first_name: this.firstName,
-                last_name: this.lastName,
-                email: this.email,
-                password: this.password,
-                password_confirmation: this.confirmPassword
-            }
-
-            this.isLoading = true;
-            await this.$store.dispatch('signup',actionPayload);
-            this.isLoading = false;
-
-            if(!this.$store.getters.getErrors){
-                    this.showAlert('success','Inscription réussie');
-                    this.$router.replace({name : 'login'});
-                }else{
-                    return this.showAlert('error','Vérifiez vos informations et réessayez');
-                }
-        }
+  components: { BaseButton },
+  data () {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      isLoading: false
     }
+  },
+  computed: {
+    getErrors () {
+      return this.$store.getters.getErrors
+    }
+  },
+  methods: {
+    async submitForm () {
+      this.$store.commit('setErrors', '')
+
+      const actionPayload = {
+        first_name: this.firstName,
+        last_name: this.lastName,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.confirmPassword
+      }
+
+      this.isLoading = true
+      await this.$store.dispatch('signup', actionPayload)
+      this.isLoading = false
+
+      if (!this.$store.getters.getErrors) {
+        this.showAlert('success', 'Inscription réussie')
+        this.$router.replace({ name: 'login' })
+      } else {
+        return this.showAlert('error', 'Vérifiez vos informations et réessayez')
+      }
+    }
+  }
 }
 </script>
 

@@ -15,36 +15,35 @@
 </template>
 
 <script>
-export default{
-  
-  created(){
-    //auth
-    this.$store.dispatch('tryLogin');
+export default {
+
+  created () {
+    // auth
+    this.$store.dispatch('tryLogin')
   },
-  computed:{
-    //auth
-    didAutoLogout(){
-          return this.$store.getters.didAutoLogout;
-        },
-    //show/hide sideBar and NaveBar
-    isAuthenticated(){
-          return this.$store.getters.isAuthenticated;
+  computed: {
+    // auth
+    didAutoLogout () {
+      return this.$store.getters.didAutoLogout
     },
-    printClass(){
-      return this.$store.getters.isAuthenticated? 'col-md-9 ms-sm-auto col-lg-10 px-md-4' : '';
+    // show/hide sideBar and NaveBar
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
+    },
+    printClass () {
+      return this.$store.getters.isAuthenticated ? 'col-md-9 ms-sm-auto col-lg-10 px-md-4' : ''
     }
-    
+
   },
-  watch:{
-    //auth
-    didAutoLogout(curValue, oldValue){
-        if(curValue && curValue !== oldValue){
-          this.$router.replace({name : 'dashboard'}); 
-        }
+  watch: {
+    // auth
+    didAutoLogout (curValue, oldValue) {
+      if (curValue && curValue !== oldValue) {
+        this.$router.replace({ name: 'dashboard' })
+      }
     }
   }
 }
-
 
 </script>
 <style>

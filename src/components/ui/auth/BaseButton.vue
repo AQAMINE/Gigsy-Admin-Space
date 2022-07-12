@@ -9,18 +9,18 @@
 </template>
 <script>
 export default {
-    props: {
-        
-        link:{
-            type: Boolean,
-            required: false,
-            default: false
-        },
-        to: {
-            type: String,
-            required : false,
-            default: '/'
-        }
+  props: {
+
+    link: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    to: {
+      type: String,
+      required: false,
+      default: '/'
     }
+  }
 }
 </script>

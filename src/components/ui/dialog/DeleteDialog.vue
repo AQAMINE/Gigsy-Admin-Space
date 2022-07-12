@@ -15,13 +15,13 @@
 </template>
 <script>
 export default {
-    props:['title','command'],
-    emits:['deleteFromModal'],
-    methods:{
-        deleteData(){
-            this.$emit('deleteFromModal');
-        }
+  props: ['title', 'command'],
+  emits: ['deleteFromModal'],
+  methods: {
+    deleteData () {
+      this.$emit('deleteFromModal')
     }
+  }
 }
 </script>
 

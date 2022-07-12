@@ -12,12 +12,11 @@
 
 <script>
 export default {
-    props:['color','icon','title','number']
-    
+  props: ['color', 'icon', 'title', 'number']
+
 }
 </script>
 <style scoped>
-
 
 .order-card {
     color: #fff;
@@ -38,7 +37,6 @@ export default {
 .bg-c-pink {
     background: linear-gradient(45deg,#FF5370,#ff869a);
 }
-
 
 .card {
     border-radius: 5px;
