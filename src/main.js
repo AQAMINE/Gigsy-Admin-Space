@@ -5,7 +5,8 @@ import store from './store'
 import alertMixin from './mixins/alert'
 import configFile from './config/config.json'
 import VueGoodTablePlugin from 'vue-good-table-next'
-
+// Global Style
+import './assets/css/main.css'
 // import the styles
 import 'vue-good-table-next/dist/vue-good-table-next.css'
 // Axios Global Use

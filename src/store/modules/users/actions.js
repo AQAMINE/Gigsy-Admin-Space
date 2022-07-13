@@ -13,7 +13,6 @@ export default {
         }
         users.push(user)
       }
-      console.log(users)
       context.commit('setUsers', users)
       context.commit('setFetchTimesTamp')
     }).catch(error => context.commit('setErrors', error.message))

@@ -3,7 +3,7 @@
             <div class="position-sticky pt-1">
                 <ul class="nav flex-column ">
                     <li class="nav-item bg-dark">
-                        <router-link class="nav-link active" aria-current="page" to="dashboard">
+                        <router-link class="nav-link active" aria-current="page" :to="{name: 'dashboard'}">
                         <span data-feather="home"></span>
                         <h6 class="list-group-item list-group-item-action list-group-item-dark "><i class="fa-solid fa-gauge"></i> Page d'accueil</h6>
                         </router-link>
@@ -18,13 +18,13 @@
                 </h6>
                 <ul class="nav flex-column mb-2 list-group">
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" to="users">
+                    <router-link class="nav-link text-orange" :to="{name: 'users'}">
                     <i class="fa fa-users"></i>
                     List des utilisateurs
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" to="services">
+                    <router-link class="nav-link text-orange" :to="{name: 'services'}">
                     <i class="fa fa-house-laptop"></i>
                     List des services
                     </router-link>

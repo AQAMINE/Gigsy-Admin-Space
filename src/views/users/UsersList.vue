@@ -1,16 +1,30 @@
 <template>
     <div>
-        <!-- <delete-dialog title="avertissement" command="Supprimé" @deleteFromModal="deleteUser"><h5>Vous voulez vraiment supprimer cet utilisateur</h5></delete-dialog> -->
         <section>
+          <delete-dialog title="avertissement" command="Supprimé" @deleteFromModal="deleteUser"><h5>Vous voulez vraiment supprimer cet utilisateur</h5></delete-dialog>
+            <base-card :shadow="true"><router-link :to="{name: 'addAdmin'}" class="btn btn-success rounded-0 col-2 cust-add-butt">Ajouter Un Utilisateur <i class="fa fa-plus"></i></router-link></base-card>
             <base-card class="mt-3" :shadow="true" title=" List des utilisateurs">
             <warning-spinner v-if="isLoading"></warning-spinner>
             <vue-good-table v-else-if="haseUsers"
                 :columns="columns"
                 :rows="users"
-                theme="nocturnal"
+                styleClass="vgt-table striped bordered"
+                :pagination-options="{
+                  enabled: true,
+                  nextLabel: 'Suivant',
+                  prevLabel: 'Précédente',
+                  rowsPerPageLabel: 'Lignes par page'
+                }"
                 :search-options="{
                   enabled: true
-                }"/>
+                }">
+                  <template #table-row="props">
+                    <span v-if="props.column.field == 'id'">
+                      <button class="btn btn-success btn-sm rounded-0 cust-btn" >Edit {{props.row.id}}</button>
+                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.id)">Delete</button>
+                    </span>
+                  </template>
+                </vue-good-table>
                 <h4 class="text-secondary" v-else>Aucun utilisateur trouvé</h4>
             </base-card>
         </section>
@@ -24,11 +38,6 @@ export default {
     return {
       columns: [
         {
-          label: 'Id',
-          field: 'id',
-          type: 'number'
-        },
-        {
           label: 'Nom et prénom',
           field: 'fullname'
         },
@@ -39,6 +48,10 @@ export default {
         {
           label: 'Créer à',
           field: 'created_at'
+        },
+        {
+          label: 'Mettre à jour',
+          field: 'id'
         }
       ],
       isLoading: false,
@@ -94,9 +107,10 @@ export default {
 </script>
 
 <style scoped>
-tr {
-    width: 100%;
-    display: inline-table;
-    table-layout: fixed;
+.cust-btn{
+    margin-right: 3px !important;
+}
+.cust-add-butt{
+  margin-left: 3px !important;
 }
 </style>

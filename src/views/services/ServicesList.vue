@@ -4,7 +4,6 @@
         <vue-good-table
           :columns="columns"
           :rows="services"
-          theme="nocturnal"
             :search-options="{
             enabled: true
           }"
@@ -19,7 +18,7 @@
               <img class="serviceImg" :src="props.row.image" alt="">
               </span>
               <span v-else-if="props.column.field == 'id'">
-                <button class="btn btn-success btn-sm rounded-0" >Edit {{props.row.id}}</button>
+                <button class="btn btn-success btn-sm rounded-0 cust-btn" >Edit {{props.row.id}}</button>
                 <button class="btn btn-danger btn-sm rounded-0" >Delete {{props.row.id}}</button>
               </span>
             </template>
@@ -54,7 +53,7 @@ export default {
           field: 'seller'
         },
         {
-          label: 'id',
+          label: 'Mettre à jour',
           field: 'id'
         }
       ],
@@ -77,5 +76,8 @@ export default {
 .serviceImg{
   height: 100;
   width: 120px;
+}
+.cust-btn{
+  margin-right: 3px !important;
 }
 </style>

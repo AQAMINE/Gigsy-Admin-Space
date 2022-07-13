@@ -6,6 +6,8 @@ const notFound = () => import('../views/errors/notFound.vue')
 const usersList = () => import('../views/users/UsersList.vue')
 const userUpdate = () => import('../views/users/UpdateUser.vue')
 const ServicesList = () => import('../views/services/ServicesList.vue')
+const AddUser = () => import('../views/users/AddUser.vue')
+
 const routes = [
   {
     path: '/',
@@ -43,6 +45,12 @@ const routes = [
     children: [
       { path: 'update/:id', component: userUpdate, props: true } // users/update
     ]
+  },
+  {
+    path: '/user/admin/new',
+    name: 'addAdmin',
+    component: AddUser,
+    meta: { requiresAuth: true }
   },
   {
     path: '/services',
