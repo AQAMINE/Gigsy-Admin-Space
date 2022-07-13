@@ -4,9 +4,9 @@ const login = () => import('../views/auth/loginUser.vue')
 const register = () => import('../views/auth/registerUser.vue')
 const notFound = () => import('../views/errors/notFound.vue')
 const usersList = () => import('../views/users/UsersList.vue')
-const userUpdate = () => import('../views/users/UpdateUser.vue')
 const ServicesList = () => import('../views/services/ServicesList.vue')
 const AddUser = () => import('../views/users/AddUser.vue')
+const EditUser = () => import('../views/users/EditUser.vue')
 
 const routes = [
   {
@@ -41,10 +41,14 @@ const routes = [
     path: '/users',
     name: 'users',
     component: usersList,
-    meta: { requiresAuth: true },
-    children: [
-      { path: 'update/:id', component: userUpdate, props: true } // users/update
-    ]
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/user/update/:id',
+    name: 'userUpadte',
+    component: EditUser,
+    props: true,
+    meta: { requiresAuth: true }
   },
   {
     path: '/user/admin/new',

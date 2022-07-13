@@ -19,7 +19,7 @@ export default {
   },
   async deleteUser (context, payload) {
     const userId = payload.id
-    await window.axios.delete(this.$app_url + `/api/v1/admin/${userId}`).then(response => {
+    await window.axios.delete(this.$app_url + `/api/v1/admins/${userId}`).then(response => {
       context.commit('setSuccess', response.data.message)
       context.dispatch('loadUsers', { forceRefresh: true })
     }).catch(error => context.commit('setErrors', error.message))

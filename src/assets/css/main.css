@@ -16,3 +16,12 @@
 .btn-warning {
     background-color: #9d7500;
 }
+
+.btn-cust-template{
+    color: #fff;
+    background-color: #d7461a;
+    border-color: #ff5927
+}
+.btn-cust-template:hover{
+    background-color: #fc5f2f;
+}

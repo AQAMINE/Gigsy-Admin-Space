@@ -20,8 +20,8 @@
                 }">
                   <template #table-row="props">
                     <span v-if="props.column.field == 'id'">
-                      <button class="btn btn-success btn-sm rounded-0 cust-btn" >Edit {{props.row.id}}</button>
-                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.id)">Delete</button>
+                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.id)" >Edit <i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.id)">Delete <i class="fa fa-trash"></i></button>
                     </span>
                   </template>
                 </vue-good-table>
@@ -90,6 +90,9 @@ export default {
       this.showRequestResult()
       this.isLoading = false
       this.deleteId = null
+    },
+    editUser (id) {
+      this.$router.replace({ name: 'userUpadte', params: { id: id } })
     }
   },
   computed: {
