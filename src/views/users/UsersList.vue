@@ -19,9 +19,9 @@
                   enabled: true
                 }">
                   <template #table-row="props">
-                    <span v-if="props.column.field == 'id'">
-                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.id)" >Edit <i class="fa fa-edit"></i></button>
-                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.id)">Delete <i class="fa fa-trash"></i></button>
+                    <span v-if="props.column.field == 'userable_id'">
+                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.userable_id)" >Edit <i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.userable_id)">Delete <i class="fa fa-trash"></i></button>
                     </span>
                   </template>
                 </vue-good-table>
@@ -51,7 +51,7 @@ export default {
         },
         {
           label: 'Mettre à jour',
-          field: 'id'
+          field: 'userable_id'
         }
       ],
       isLoading: false,

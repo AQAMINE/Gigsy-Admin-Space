@@ -20,34 +20,41 @@
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
                     <router-link class="nav-link text-orange" :to="{name: 'users'}">
                     <i class="fa fa-users"></i>
-                    List des utilisateurs
+                      List des utilisateurs
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" :to="{name: 'services'}">
-                    <i class="fa fa-house-laptop"></i>
-                    List des services
+                    <router-link class="nav-link text-orange" :to="{name: 'users'}">
+                    <i class="fa fa-hand-holding-dollar"></i>
+                      Liste des vendeurs
                     </router-link>
                 </li>
+                <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
+                    <router-link class="nav-link text-orange" :to="{name: 'users'}">
+                    <i class="fa fa-cart-shopping"></i>
+                      Liste des acheteurs
+                    </router-link>
+                </li>
+
                 </ul>
 
                 <h6 class=" sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Les vendeurs</span>
+                <span>Services</span>
                 <a class="link-secondary" href="#" aria-label="Add a new report">
                     <i class="fa fa-shop"></i>
                 </a>
                 </h6>
                 <ul class="nav flex-column mb-2 list-group">
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" to="users">
-                    <i class="fa fa-shop"></i>
-                    Liste des vendeurs
+                    <router-link class="nav-link text-orange" :to="{name: 'services'}">
+                    <i class="fa fa-house-laptop"></i>
+                      List des services
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" to="users">
-                    <i class="fa fa-cart-plus"></i>
-                    Add Seller
+                    <router-link class="nav-link text-orange" :to="{ name: 'categories'}">
+                    <i class="fa fa-bars-staggered"></i>
+                      Liste des catégories
                     </router-link>
                 </li>
                 </ul>

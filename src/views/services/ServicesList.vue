@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     async loadServices () {
-      await window.axios(this.$config.app_url + '/api/v1/services/list').then(response => {
+      await window.axios.get(this.$config.app_url + '/api/v1/services/list').then(response => {
         this.services = response.data.data
       }).catch(errors => this.showAlert('error', errors.message))
     }

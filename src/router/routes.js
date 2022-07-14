@@ -7,6 +7,8 @@ const usersList = () => import('../views/users/UsersList.vue')
 const ServicesList = () => import('../views/services/ServicesList.vue')
 const AddUser = () => import('../views/users/AddUser.vue')
 const EditUser = () => import('../views/users/EditUser.vue')
+const categoriesList = () => import('../views/categories/CategoriesList.vue')
+const updateCategory = () => import('../views/categories/UpdateCategory.vue')
 
 const routes = [
   {
@@ -61,6 +63,15 @@ const routes = [
     name: 'services',
     component: ServicesList,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: categoriesList,
+    meta: { requiresAuth: true },
+    children: [
+      { name: 'updateCategory', path: 'update/:id', props: true, component: updateCategory } // /coaches/id/contact
+    ]
   }
 ]
 export default routes
