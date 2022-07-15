@@ -2,6 +2,7 @@ import dashboardPage from '../views/dashboardPage.vue'
 
 const login = () => import('../views/auth/loginUser.vue')
 const register = () => import('../views/auth/registerUser.vue')
+const PersonelProfile = () => import('../views/profile/PersonelProfile.vue')
 const notFound = () => import('../views/errors/notFound.vue')
 const usersList = () => import('../views/users/UsersList.vue')
 const ServicesList = () => import('../views/services/ServicesList.vue')
@@ -72,6 +73,12 @@ const routes = [
     children: [
       { name: 'updateCategory', path: 'update/:id', props: true, component: updateCategory } // /coaches/id/contact
     ]
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: PersonelProfile,
+    meta: { requiresAuth: true }
   }
 ]
 export default routes
