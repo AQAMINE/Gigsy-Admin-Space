@@ -66,7 +66,21 @@ export default {
   methods: {
     async loadServices () {
       await window.axios.get(this.$config.app_url + '/api/v1/services/list').then(response => {
-        this.services = response.data.data
+        const services = []
+        const respanseData = response.data.data
+        for (const key in respanseData) {
+          const convertedData = { ...respanseData[key] }
+          const service = {
+            id: convertedData.id,
+            name: convertedData.name,
+            description: convertedData.description,
+            image: convertedData.image,
+            rating: convertedData.rating,
+            seller: convertedData.seller.user.fullname
+          }
+          services.push(service)
+        }
+        this.services = services
       }).catch(errors => this.showAlert('error', errors.message))
     }
   }

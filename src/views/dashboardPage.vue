@@ -10,6 +10,8 @@
                 <number-card color="bg-c-green" icon="fa-cart-flatbed" title="Nombre d'acheteurs" number="500"></number-card>
                 <number-card color="bg-c-blue" icon="fa-chart-line" title="Nombre de commandes" number="450"></number-card>
             </base-card>
+            <base-card class="mt-2 chart" :shadow="true" :title="'Meilleures ventes'"><base-char></base-char></base-card>
+
             <base-card class="mt-2" :shadow="true" :title="'Top 4 Services'">
               <div class="col-lg-3 col-md-6 col-sm-12" v-for="service in services" :key="service.id">
                   <div  class="card " style="width: 18rem;">
@@ -34,8 +36,9 @@
 <script>
 import NumberCard from '../components/ui/card/NumberCard.vue'
 import BaseCard from '../components/ui/card/BaseCard.vue'
+import BaseChar from '../components/char/BaseChar.vue'
 export default {
-  components: { NumberCard, BaseCard },
+  components: { NumberCard, BaseCard, BaseChar },
   data () {
     return {
       usersCounter: 0,
@@ -72,6 +75,9 @@ export default {
 }
 </script>
 <style scoped>
+.chart{
+  /* max-height: 400px; */
+}
 .card{
       box-shadow: 1px 1px 10px #00000063;
       border-bottom: 2px solid #ff5927;
