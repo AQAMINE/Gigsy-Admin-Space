@@ -6,23 +6,11 @@
 
                       <div class="card-body">
                           <div class="card-title mb-4">
-                              <div class="d-flex justify-content-start">
-                                  <div class="image-container">
-                                      <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                                      <div class="middle">
-                                          <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                                          <input type="file" style="display: none;" id="profilePicture" name="file" />
-                                      </div>
-                                  </div>
-                                  <div class="userData ml-3">
-                                      <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Some Name</a></h2>
-                                      <h6 class="d-block"><a href="javascript:void(0)">1,500</a> Video Uploads</h6>
-                                      <h6 class="d-block"><a href="javascript:void(0)">300</a> Blog Posts</h6>
-                                  </div>
-                                  <div class="ml-auto">
-                                      <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
-                                  </div>
-                              </div>
+                            <!-- Strat Profile Picture -->
+                            <div class="text-center profile-pic">
+                              <img src="https://t3.ftcdn.net/jpg/04/23/59/74/360_F_423597477_AKCjGMtevfCi9XJG0M8jter97kG466y7.jpg" class="rounded" alt="...">
+                              <h5>Amine Aqebli</h5>
+                            </div>
                           </div>
 
                           <div class="row">
@@ -37,51 +25,43 @@
 
                                           <div class="row">
                                               <div class="col-sm-3 col-md-2 col-5">
-                                                  <label style="font-weight:bold;">Full Name</label>
+                                                  <label style="font-weight:bold;">Prénom</label>
                                               </div>
                                               <div class="col-md-8 col-6">
-                                                  Jamshaid Kamran
+                                                  amine
                                               </div>
                                           </div>
                                           <hr />
 
                                           <div class="row">
                                               <div class="col-sm-3 col-md-2 col-5">
-                                                  <label style="font-weight:bold;">Birth Date</label>
+                                                  <label style="font-weight:bold;">Nom</label>
                                               </div>
                                               <div class="col-md-8 col-6">
-                                                  March 22, 1994.
+                                                  aqaebli
                                               </div>
                                           </div>
                                           <hr />
 
                                           <div class="row">
                                               <div class="col-sm-3 col-md-2 col-5">
-                                                  <label style="font-weight:bold;">Something</label>
+                                                  <label style="font-weight:bold;">Email</label>
                                               </div>
                                               <div class="col-md-8 col-6">
-                                                  Something
+                                                  amine@gmail.com
                                               </div>
                                           </div>
                                           <hr />
                                           <div class="row">
                                               <div class="col-sm-3 col-md-2 col-5">
-                                                  <label style="font-weight:bold;">Something</label>
+                                                  <label style="font-weight:bold;">Inscrivez-vous à</label>
                                               </div>
                                               <div class="col-md-8 col-6">
-                                                  Something
+                                                  2022-06-02
                                               </div>
                                           </div>
                                           <hr />
-                                          <div class="row">
-                                              <div class="col-sm-3 col-md-2 col-5">
-                                                  <label style="font-weight:bold;">Something</label>
-                                              </div>
-                                              <div class="col-md-8 col-6">
-                                                  Something
-                                              </div>
-                                          </div>
-                                          <hr />
+                                          <button class="btn btn-success rounded-0">Enregistrer</button>
 
                                       </div>
 
@@ -141,5 +121,19 @@ body{
 
         .image-container:hover .middle {
             opacity: 1;
+        }
+        .profile-pic{
+              border-bottom: 3px solid #ff5a28
+        }
+        .profile-pic img{
+          height: 200px;
+          width: 200px;
+          border-radius: 49% !important;
+          box-shadow: 1px 1px 5px #000000ab;
+          border: 2px solid #ff5a28;
+
+        }
+        .profile-pic h6{
+          margin-top: 10px !important;
         }
 </style>

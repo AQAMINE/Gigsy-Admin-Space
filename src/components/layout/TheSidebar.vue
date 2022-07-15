@@ -24,13 +24,13 @@
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" :to="{name: 'users'}">
+                    <router-link class="nav-link text-orange" :to="{name: 'sellers'}">
                     <i class="fa fa-hand-holding-dollar"></i>
                       Liste des vendeurs
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" :to="{name: 'users'}">
+                    <router-link class="nav-link text-orange" :to="{name: 'buyers'}">
                     <i class="fa fa-cart-shopping"></i>
                       Liste des acheteurs
                     </router-link>
@@ -61,19 +61,19 @@
 
                 <h6 class=" sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Commandes</span>
-                <a class="link-secondary" href="#" aria-label="Add a new report">
+                <router-link :to="{ name: 'orders' }" class="link-secondary" href="#" aria-label="Add a new report">
                     <i class="fa fa-magnifying-glass-dollar"></i>
-                </a>
+                </router-link>
                 </h6>
                 <ul class="nav flex-column mb-2 list-group">
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" :to="{name: 'services'}">
+                    <router-link class="nav-link text-orange" :to="{name: 'orders'}">
                     <i class="fa fa-comments-dollar"></i>
                       Liste des commandes
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
-                    <router-link class="nav-link text-orange" :to="{ name: 'categories'}">
+                    <router-link class="nav-link text-orange" :to="{ name: 'transaction'}">
                     <i class="fa fa-money-bill-transfer"></i>
                       Liste des transactions
                     </router-link>

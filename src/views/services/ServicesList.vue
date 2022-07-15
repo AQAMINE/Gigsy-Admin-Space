@@ -18,8 +18,8 @@
               <img class="serviceImg" :src="props.row.image" alt="">
               </span>
               <span v-else-if="props.column.field == 'id'">
-                <button class="btn btn-success btn-sm rounded-0 cust-btn" >Edit {{props.row.id}}</button>
-                <button class="btn btn-danger btn-sm rounded-0" >Delete {{props.row.id}}</button>
+                <a href="{{props.row.id}}" class="btn btn-success btn-sm rounded-0 cust-btn" >Edit </a>
+                <a href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0" >Delete </a>
               </span>
             </template>
           </vue-good-table>

@@ -10,7 +10,10 @@ const AddUser = () => import('../views/users/AddUser.vue')
 const EditUser = () => import('../views/users/EditUser.vue')
 const categoriesList = () => import('../views/categories/CategoriesList.vue')
 const updateCategory = () => import('../views/categories/UpdateCategory.vue')
-
+const OrdersList = () => import('../views/orders/OrdersList.vue')
+const TransacList = () => import('../views/transac/TransacList.vue')
+const BuyersList = () => import('../views/buyers/BuyersList.vue')
+const SellersList = () => import('../views/sellers/SellerList.vue')
 const routes = [
   {
     path: '/',
@@ -78,6 +81,31 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: PersonelProfile,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/commandes',
+    name: 'orders',
+    component: OrdersList,
+    meta: { requiresAuth: true }
+
+  },
+  {
+    path: '/transactions',
+    name: 'transaction',
+    component: TransacList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/vendeurs',
+    name: 'buyers',
+    component: BuyersList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/vendeurs',
+    name: 'sellers',
+    component: SellersList,
     meta: { requiresAuth: true }
   }
 ]
