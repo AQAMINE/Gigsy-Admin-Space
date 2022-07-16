@@ -2,12 +2,12 @@
     <div>
         <section>
           <delete-dialog title="avertissement" command="Supprimé" @deleteFromModal="deleteUser"><h5>Vous voulez vraiment supprimer cet vendeur</h5></delete-dialog>
-            <base-card :shadow="true"><router-link :to="{name: 'addAdmin'}" class="btn btn-success rounded-0 col-2 cust-add-butt">Ajouter Un vendeur <i class="fa fa-plus"></i></router-link></base-card>
-            <base-card class="mt-3" :shadow="true" title=" Liste des vendeurs ">
-            <warning-spinner v-if="isLoading"></warning-spinner>
-            <vue-good-table v-else-if="haseUsers"
+            <base-card :shadow="true"><router-link :to="{name: 'addAdmin'}" class="btn btn-success rounded-0 col-2 cust-add-butt">Ajouter Un vendeurs <i class="fa fa-plus"></i></router-link></base-card>
+            <base-card class="mt-3" :shadow="true" title="Liste des vendeurs">
+
+            <vue-good-table
                 :columns="columns"
-                :rows="users"
+                :rows="buyers"
                 styleClass="vgt-table striped bordered"
                 :pagination-options="{
                   enabled: true,
@@ -25,7 +25,7 @@
                     </span>
                   </template>
                 </vue-good-table>
-                <h4 class="text-secondary" v-else>Aucun vendeur trouvé</h4>
+
             </base-card>
         </section>
 
@@ -54,6 +54,7 @@ export default {
           field: 'userable_id'
         }
       ],
+      buyers: [],
       isLoading: false,
       keyword: '',
       deleteId: null
@@ -75,35 +76,29 @@ export default {
     },
 
     async loadUsers () {
-      this.isLoading = true
-      await this.$store.dispatch('users/loadUsers')
-      this.showRequestResult()
-      this.isLoading = false
+      window.axios.get(this.$config.app_url + '/api/v1/sellers/list').then(response => {
+        const responseData = response.data.data
+        const buyers = []
+        for (const key in responseData) {
+          const userableBuyer = responseData[key].user
+          buyers.push(userableBuyer)
+        }
+        this.buyers = buyers
+      })
     },
 
     passUserId (id) {
       this.deleteId = id
     },
     async deleteUser () {
-      this.isLoading = true
-      await this.$store.dispatch('users/deleteUser', { id: this.deleteId })
-      this.showRequestResult()
-      this.isLoading = false
-      this.deleteId = null
+      console.log('delete user')
     },
     editUser (id) {
-      this.$router.replace({ name: 'userUpadte', params: { id: id } })
+      const type = 'vendeur'
+      this.$router.replace({ name: 'userUpadte', params: { id: id, type: type } })
     }
   },
   computed: {
-
-    users () {
-      return this.$store.getters['users/users']
-    },
-
-    haseUsers () {
-      return !this.isLoading && this.$store.getters['users/hasUsers']
-    }
   }
 
 }

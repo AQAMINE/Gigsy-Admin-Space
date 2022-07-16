@@ -15,7 +15,7 @@
           }">
             <template #table-row="props">
               <span v-if="props.column.field == 'id'">
-                <a href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0" >Delete</a>
+                <a href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0" >Supprimer <i class="fa fa-trash"></i></a>
               </span>
               <span v-else-if="props.column.field == 'status'">
                 <span class="badge bg-success" v-if="props.row.status == 1">Complété</span>

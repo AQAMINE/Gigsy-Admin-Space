@@ -18,7 +18,7 @@
               <img class="serviceImg" :src="props.row.image" alt="">
               </span>
               <span v-else-if="props.column.field == 'id'">
-                <a class="btn btn-danger btn-sm rounded-0" href="{{props.row.id}}" >Delete </a>
+                <a class="btn btn-danger btn-sm rounded-0" href="{{props.row.id}}" >Supprimer <i class="fa fa-trash"></i></a>
               </span>
               <span v-else-if="props.column.field == 'status'">
                 <span class="badge bg-success" v-if="props.row.status == 1">Complété</span>

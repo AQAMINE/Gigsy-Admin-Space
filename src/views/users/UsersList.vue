@@ -18,10 +18,10 @@
                 :search-options="{
                   enabled: true
                 }">
-                  <template #table-row="props">
-                    <span v-if="props.column.field == 'userable_id'">
-                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.userable_id)" >Edit <i class="fa fa-edit"></i></button>
-                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.userable_id)">Delete <i class="fa fa-trash"></i></button>
+                  <template #table-row="props" >
+                    <span v-if="props.column.field == 'userable_id'" >
+                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.userable_id)" >Éditer <i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.userable_id)">Supprimer <i class="fa fa-trash"></i></button>
                     </span>
                   </template>
                 </vue-good-table>
@@ -92,7 +92,8 @@ export default {
       this.deleteId = null
     },
     editUser (id) {
-      this.$router.replace({ name: 'userUpadte', params: { id: id } })
+      const type = 'admin'
+      this.$router.replace({ name: 'userUpadte', params: { id: id, type } })
     }
   },
   computed: {
@@ -116,4 +117,5 @@ export default {
 .cust-add-butt{
   margin-left: 3px !important;
 }
+
 </style>

@@ -50,7 +50,9 @@ export default {
     async getUser () {
       const userId = this.$route.params.id
       this.isLoading = true
-      await window.axios.get(this.$config.app_url + '/api/v1/admins/' + userId).then(response => {
+      const type = this.$route.params.type
+      const url = type === 'vendeur' ? '/api/v1/sellers/' : type === 'acheteurs' ? '/api/v1/buyers/' : '/api/v1/admins/'
+      await window.axios.get(this.$config.app_url + url + userId).then(response => {
         const user = response.data.data.user
         this.firstName = user.first_name
         this.lastName = user.fullname
@@ -59,9 +61,10 @@ export default {
       this.isLoading = false
     },
     async updaateUser () {
-      console.log('llo')
       const userId = this.$route.params.id
-      await window.axios.put(this.$config.app_url + 'api/v1/admins/' + userId, {
+      const type = this.$route.params.type
+      const url = type === 'vendeur' ? '/api/v1/sellers/' : type === 'acheteurs' ? '/api/v1/buyers/' : '/api/v1/admins/'
+      await window.axios.put(this.$config.app_url + url + userId, {
         email: this.email,
         first_name: this.firstName,
         last_name: this.lastName

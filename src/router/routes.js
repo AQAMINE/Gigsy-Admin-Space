@@ -50,7 +50,7 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/user/update/:id',
+    path: '/user/update/:id/:type',
     name: 'userUpadte',
     component: EditUser,
     props: true,
