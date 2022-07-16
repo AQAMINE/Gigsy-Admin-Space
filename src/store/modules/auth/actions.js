@@ -24,7 +24,9 @@ export default {
         first_name: payload.first_name,
         last_name: payload.last_name,
         password: payload.password,
-        password_confirmation: payload.password_confirmation
+        password_confirmation: payload.password_confirmation,
+        img: 'defaulte.jpg',
+        description: 'default'
       })
       // .then(response => {
       //     const responseData = response.data.message;

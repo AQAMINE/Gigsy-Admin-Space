@@ -2,8 +2,8 @@
     <div>
         <section>
           <delete-dialog title="avertissement" command="Supprimé" @deleteFromModal="deleteUser"><h5>Vous voulez vraiment supprimer cet utilisateur</h5></delete-dialog>
-            <base-card :shadow="true"><router-link :to="{name: 'addAdmin'}" class="btn btn-success rounded-0 col-2 cust-add-butt">Ajouter Un Utilisateur <i class="fa fa-plus"></i></router-link></base-card>
-            <base-card class="mt-3" :shadow="true" title=" List des utilisateurs">
+            <base-card :shadow="true"><router-link :to="{name: 'addAdmin'}" class="btn btn-success rounded-0 col-2 cust-add-butt">Ajouter Un Admin <i class="fa fa-plus"></i></router-link></base-card>
+            <base-card class="mt-3" :shadow="true" title=" List des Admins">
             <warning-spinner v-if="isLoading"></warning-spinner>
             <vue-good-table v-else-if="haseUsers"
                 :columns="columns"
@@ -20,7 +20,7 @@
                 }">
                   <template #table-row="props" >
                     <span v-if="props.column.field == 'userable_id'" >
-                      <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.userable_id)" >Éditer <i class="fa fa-edit"></i></button>
+                      <!-- <button class="btn btn-success btn-sm rounded-0 cust-btn" @click="editUser(props.row.userable_id)" >Éditer <i class="fa fa-edit"></i></button> -->
                       <button class="btn btn-danger btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#showMessageModal" @click="passUserId(props.row.userable_id)">Supprimer <i class="fa fa-trash"></i></button>
                     </span>
                   </template>

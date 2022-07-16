@@ -20,7 +20,7 @@
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
                     <router-link class="nav-link text-orange" :to="{name: 'users'}">
                     <i class="fa fa-users"></i>
-                      List des utilisateurs
+                      List des Admins
                     </router-link>
                 </li>
                 <li class="nav-item rounded-0 list-group-item list-group-item-action bg-dark">
