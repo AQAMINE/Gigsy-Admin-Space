@@ -18,7 +18,8 @@
               <img class="serviceImg" :src="props.row.image" alt="">
               </span>
               <span v-else-if="props.column.field == 'id'">
-                <button @click="changeState(props.row.id)" href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0 cust-btn" >Approuvée <i class="fa fa-edit"></i> </button>
+                <button v-if="!props.row.status" @click="changeState(props.row.id)" href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0 cust-btn" >Approuvée <i class="fa fa-edit"></i> </button>
+                <span class="badge bg-success" v-else>Approuvée</span>
                 <!-- <a href="{{props.row.id}}" class="btn btn-danger btn-sm rounded-0" >Supprimer <i class="fa fa-trash"></i></a> -->
               </span>
             </template>
@@ -55,11 +56,8 @@ export default {
         {
           label: 'Mettre à jour',
           field: 'id'
-        },
-        {
-          label: 'Status',
-          field: 'status'
         }
+
       ],
       services: []
     }
@@ -80,6 +78,7 @@ export default {
             description: convertedData.description,
             image: convertedData.image,
             rating: convertedData.rating,
+            status: convertedData.status,
             seller: convertedData.seller.user.fullname
           }
           services.push(service)
@@ -88,18 +87,10 @@ export default {
       }).catch(errors => this.showAlert('error', errors.message))
     },
     changeState (id) {
-      let currentService = ''
-      let Newstatut = ''
-      window.axios.get(this.$config.app_url + '/api/v1/services/' + id).then(response => {
-        // console.log(response)
-        currentService = response.data.data
-        const statut = currentService.status
-        Newstatut = statut === 1 ? 0 : 1
-        console.log(Newstatut)
-        console.log(currentService)
-      })
       window.axios.post(this.$config.app_url + '/api/v1/services/update/approve/' + id).then((res) => {
         console.log(res)
+        this.showAlert('success', 'Approuvé avec succès')
+        this.loadServices()
       })
     }
   }
